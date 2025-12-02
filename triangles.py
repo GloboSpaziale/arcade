@@ -150,6 +150,14 @@ class MyGame(arcade.Window):
         # TODO 2: Mostra "GAME OVER" quando il giocatore muore
         # Suggerimento: Controlla se il giocatore è vivo, poi usa arcade.draw_text
         # per mostrare "GAME OVER" al centro dello schermo in rosso e grassetto
+        if(self.health<=0):
+            arcade.draw_text(
+                'GAME OVER',
+                SCREEN_WIDTH/2,
+                SCREEN_HEIGHT/2,
+                arcade.color.RED,
+                bold=True
+            )
     
     def update_velocity(self):
         """Aggiorna la velocità in base ai tasti premuti"""
@@ -178,6 +186,8 @@ class MyGame(arcade.Window):
         # TODO 3: Blocca il gioco quando il giocatore muore
         # Suggerimento: All'inizio di questa funzione, controlla se il giocatore è vivo
         # Se è False, usa 'return' per uscire subito e non aggiornare nulla
+        if(self.health<=0):
+            return
         
         # Aggiorna la posizione del giocatore
         self.square_x += self.velocity_x * delta_time
@@ -198,7 +208,7 @@ class MyGame(arcade.Window):
         # Nelle righe qui sopra vediamo come fare in modo che "accada qualcosa ogni tot tempo"
         # Aggiungi una variabile "speed_increase_rate", impostala a 2 secondi. 
         # Ogni due secondi, aumenta la variabile "speed" del 10%
-
+        
             
         # Aggiorna i nemici e gestisci gli spari
         for enemy in self.enemies:
