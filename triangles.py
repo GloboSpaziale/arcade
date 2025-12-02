@@ -106,7 +106,8 @@ class MyGame(arcade.Window):
         self.time_since_spawn = 0
         self.spawn_rate = 5.0  # Un nemico ogni 5 secondi
         self.shooting_speed = 3.0  # Nemici sparano ogni 3 secondi
-        
+        self.speed_increase_rate = 0
+        self.speed_increase_time = 2.0
     def on_draw(self):
         """Disegna tutti gli elementi del gioco"""
         self.clear()
@@ -208,7 +209,10 @@ class MyGame(arcade.Window):
         # Nelle righe qui sopra vediamo come fare in modo che "accada qualcosa ogni tot tempo"
         # Aggiungi una variabile "speed_increase_rate", impostala a 2 secondi. 
         # Ogni due secondi, aumenta la variabile "speed" del 10%
-        
+        self.speed_increase_rate += delta_time
+        if self.speed_increase_rate >= self.speed_increase_time:
+            self.speed+=self.speed/10
+            self.speed_increase_rate = 0 
             
         # Aggiorna i nemici e gestisci gli spari
         for enemy in self.enemies:
