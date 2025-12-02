@@ -89,7 +89,7 @@ class MyGame(arcade.Window):
         self.velocity_y = 0
         self.health = 3
         self.alive = True
-        
+        self.color = arcade.color.BLUE
         # Input tracking per controlli più fluidi
         self.keys_pressed = {
             'up': False,
@@ -117,7 +117,7 @@ class MyGame(arcade.Window):
             self.square_x + self.square_size / 2,
             self.square_y - self.square_size / 2,
             self.square_y + self.square_size / 2,
-            arcade.color.BLUE
+            self.color
         )
         
         # TODO 1: Cambia il colore del quadrato in base alla vita
@@ -167,6 +167,14 @@ class MyGame(arcade.Window):
     
     def on_update(self, delta_time):
         """Aggiorna la logica del gioco ogni frame"""
+        if self.health==3:
+            self.color=arcade.color.BLUE
+        elif self.health==2:
+            self.color=arcade.color.GREEN
+        elif self.health==1:
+            self.color=arcade.color.YELLOW
+        else:
+            self.color=arcade.color.BLACK
         # TODO 3: Blocca il gioco quando il giocatore muore
         # Suggerimento: All'inizio di questa funzione, controlla se il giocatore è vivo
         # Se è False, usa 'return' per uscire subito e non aggiornare nulla
