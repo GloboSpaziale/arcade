@@ -152,6 +152,7 @@ class MyGame(arcade.Window):
         # Suggerimento: Controlla se il giocatore è vivo, poi usa arcade.draw_text
         # per mostrare "GAME OVER" al centro dello schermo in rosso e grassetto
         if(self.health<=0):
+            arcade.set_background_color(arcade.color.BLACK)
             arcade.draw_text(
                 'GAME OVER',
                 SCREEN_WIDTH/2,
