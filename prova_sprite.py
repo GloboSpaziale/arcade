@@ -1,5 +1,7 @@
 import arcade
 import os
+import random
+import math
 # from arcade import *
 
 class MyGame(arcade.Window):
@@ -21,7 +23,7 @@ class MyGame(arcade.Window):
     def setup(self):
         
         self.sprite = arcade.Sprite("./asset/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_1.png")
-
+        self.rock = 
         self.sprite.center_x = 100
         self.sprite.center_y = 100
         self.sprite.scale_x = 5.0
